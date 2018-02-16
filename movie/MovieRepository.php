@@ -19,7 +19,18 @@ class MovieRepository
     {
         $string = file_get_contents($this->movieListFilename);
         $json = json_decode($string, true);
+        Movie::createFromArry
         return $json;
     }
+
+    public function createFromArray($json)
+    {
+        foreach($json as screening){
+        $movie =  new Movie$this->setblabla()
+    }
+
+        foreach $movie->times
+                $movie->screening[] = new Screening
+}
 
 }
