@@ -17,7 +17,7 @@ require_once 'reservation/ReservationController.php';
 require_once 'reservation/ReservationRepository.php';
 require_once 'reservation/ReservationView.php';
 require_once 'reservation/Reservation.php';
-require_once 'Screening.php';
+require_once 'screening.php';
 
 //$movie = new Movie;
 //
