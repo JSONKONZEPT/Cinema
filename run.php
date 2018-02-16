@@ -7,6 +7,7 @@
  */
 
 require_once 'movie/MovieController.php';
+require_once 'movie/movie.php';
 require_once 'movie/MovieView.php';
 require_once 'movie/MovieRepository.php';
 require_once 'cinema/CinemaController.php';
@@ -22,10 +23,12 @@ require_once 'Screening.php';
 //
 //$movie->readFile("movies.json");
 
-$cinema = new CinemaController();
+//$cinema = new CinemaController();
 
-$cinema->run();
+//$cinema->run();
 
+$movieREpo = new MovieRepository();
+$movieREpo->readMovieList();
 
 /*
 $count = new Screening;

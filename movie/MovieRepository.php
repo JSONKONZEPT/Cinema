@@ -18,19 +18,32 @@ class MovieRepository
     public function readMovieList()
     {
         $string = file_get_contents($this->movieListFilename);
-        $json = json_decode($string, true);
-        Movie::createFromArry
-        return $json;
+        $movieData = json_decode($string, true);
+        return $this->createFromArray($movieData);
     }
 
-    public function createFromArray($json)
+    public function createFromArray($movieData)
     {
-        foreach($json as screening){
-        $movie =  new Movie$this->setblabla()
-    }
+        $movies = [];
+        foreach ($movieData as $key=>$value) {
+            $movie = Movie::createFromArray($value);
+            $movies[] = $movie;
 
-        foreach $movie->times
-                $movie->screening[] = new Screening
-}
+            foreach($value["time"] as $time) {
+                print "--------------------------------\n";
+                var_dump($movie->getTitle());
+                var_dump($movie->getTitle());
+                var_dump($time);
+            }
+//            $movies = new Reservation;
+//            $ = $movies->getMovie();
+//
+//
+//            foreach ($movie->time as $) {
+//                $movie->screening[] = new Screening;
+//            }
+        }
+        return $movies;
+    }
 
 }
