@@ -64,7 +64,7 @@ class ReservationView
         for ($i = 0; $i < count($reservations); $i++) {
             $r = $reservations[$i];
             // TODO format correctly
-            printf("\n\n%d\n%s\n%s", $i, $r->movie, $r->firstname);
+            printf("\n\n%d)\nMovie: %s\nFirstname: %s\nLastname: %s\nSeats: %d\n", $i, $r->movie, $r->firstname, $r->lastname, $r->seats);
         }
         print "\n\n";
     }
