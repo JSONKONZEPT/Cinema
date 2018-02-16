@@ -4,6 +4,7 @@ class MovieController {
 
     private $view;
     private $repo;
+    private $movieList;
 
     public function __construct()
     {
@@ -12,8 +13,11 @@ class MovieController {
     }
 
     public function displayMovies() {
-        $movie_list = $this->repo->readMovieList();
-        $this->view->displayMovieList($movie_list);
+        if(!isset($this->movieList)) {
+
+            $this->movieList = $this->repo->readMovieList();
+        }
+        $this->view->displayMovieList($this->movieList);
     }
 
     public function chooseMovie()

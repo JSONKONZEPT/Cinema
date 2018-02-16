@@ -33,13 +33,7 @@ class MovieRepository
                 $screening = Screening::create($time, $value['hall'], $movie);
                 $movie->addScreening($screening);
             }
-//            $movies = new Reservation;
-//            $ = $movies->getMovie();
-//
-//
-//            foreach ($movie->time as $) {
-//                $movie->screening[] = new Screening;
-//            }
+
         }
         return $movies;
     }

@@ -13,6 +13,7 @@ class CinemaController {
     {
         $movieController = new MovieController();
         $reservationController = new ReservationController();
+        $screening = new Screening();
 
         do{
             $command = $this->view->getCommand();
@@ -25,11 +26,10 @@ class CinemaController {
                     $movieController->displayMovies();
                     $movieController->chooseMovie();
                     $reservationController->getReservationFromUser();
-                    $reservationController->calculateAvailableSeats();
                     break;
 
                 case 2:
-
+                    $reservationController->displayReservations();
                     break;
 
                 case 3:

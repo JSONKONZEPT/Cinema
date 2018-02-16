@@ -8,7 +8,6 @@
 
 class ReservationView
 {
-    private $day = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
     public function getReservationFromUser(array $movie_list) {
 
@@ -18,25 +17,20 @@ class ReservationView
         $movie = $movie_list[$movieId];
         printf("\nTitle: %s\nDuration: %s\nFSK: %d\n\n", $movie->getTitle(), $movie->getDuration(), $movie->getFsk());
 
-//        for ($i = 0; $i < count($this->day); $i++) {
-//            printf("%d %s\n", $i, $this->day[$i]);
-//        }
-//        print "\n";
-
         $reservation = new Reservation();
         $reservation->setMovie($movieId);
-//
-//        print 'Which day (number): ';
-//        $reservation->setDay(readline());
+
 
         print "\n";
-        foreach ($movie->getScreenings() as $i=>$screening) {
+        $screenings = $movie->getScreenings();
+        foreach ($screenings as $i=> $screening) {
             printf("%d) Time: %s \nFree seats: %d\n-----------------------\n", $i, $screening->getTime(), $screening->countFreeSeats());
         }
         print "\n";
 
         print 'At what time (number): ';
         $reservation->setTime(readline());
+        $screening = $screenings[$reservation->getTime()];
         print 'Firstname: ';
         $reservation->setFirstname(readline());
         print 'Lastname: ';
@@ -54,6 +48,8 @@ class ReservationView
             $children = $reservation->getChildren();
         } while ($seats != $adults + $children);
 
+        $screening->reserveSeats($seats);
+
         $price = ($adults * 18) + ($children * 15);
         echo "\nPrice: " . $price . " Fr. \n";
 
@@ -67,6 +63,15 @@ class ReservationView
             printf("\n\n%d)\nMovie: %s\nFirstname: %s\nLastname: %s\nSeats: %d\n", $i, $r->movie, $r->firstname, $r->lastname, $r->seats);
         }
         print "\n\n";
+    }
+
+    public function cancelReservation() {
+        print "Which reservation do you want cancel? : ";
+        $cancelReservation = readline();
+    }
+
+    public function reservatedSeats() {
+
     }
 
 }

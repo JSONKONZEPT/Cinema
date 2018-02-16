@@ -31,8 +31,7 @@ class ReservationController
         $this->view->displayReservations($reservations);
     }
 
-    public function calculateAvailableSeats()
-    {
 
-    }
+
+
 }

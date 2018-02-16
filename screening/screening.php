@@ -12,6 +12,7 @@ class Screening
     private $hall;
     private $time;
     private $movie;
+    private $freeSeats = 150;
 
     /**
      * @param mixed $movie
@@ -76,17 +77,7 @@ class Screening
 
     public function countFreeSeats()
     {
-        $free = 0;
-        $seats = $this->seats;
-
-        foreach($seats as $row) {
-            foreach ( $row as $seat) {
-                if ($seat == true) {
-                    $free += 1;
-                }
-            }
-        }
-        return $free;
+        return $this->freeSeats;
     }
 
     public static function create($time, $hall, $movie) {
@@ -100,6 +91,11 @@ class Screening
 
 
 
+    }
+
+    public function reserveSeats($seatCount) {
+        $this->freeSeats -= $seatCount;
+        return $this->freeSeats;
     }
 
 }
