@@ -25,14 +25,13 @@ class ReservationView
 
         $reservation = new Reservation();
         $reservation->setMovie($movieId);
-        var_dump($movie);
 //
 //        print 'Which day (number): ';
 //        $reservation->setDay(readline());
 
         print "\n";
         foreach ($movie->getScreenings() as $i=>$screening) {
-            printf("%d %s Free seats: %d\n", $i, $screening->getTime(), $screening->countFreeSeats());
+            printf("%d) Time: %s \nFree seats: %d\n-----------------------\n", $i, $screening->getTime(), $screening->countFreeSeats());
         }
         print "\n";
 
