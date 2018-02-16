@@ -30,10 +30,8 @@ class MovieRepository
             $movies[] = $movie;
 
             foreach($value["time"] as $time) {
-                print "--------------------------------\n";
-                var_dump($movie->getTitle());
-                var_dump($movie->getTitle());
-                var_dump($time);
+                $screening = Screening::create($time, $value['hall'], $movie);
+                $movie->addScreening($screening);
             }
 //            $movies = new Reservation;
 //            $ = $movies->getMovie();

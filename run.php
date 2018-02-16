@@ -23,12 +23,12 @@ require_once 'Screening.php';
 //
 //$movie->readFile("movies.json");
 
-//$cinema = new CinemaController();
+$cinema = new CinemaController();
 
-//$cinema->run();
+$cinema->run();
 
-$movieREpo = new MovieRepository();
-$movieREpo->readMovieList();
+//$movieREpo = new MovieRepository();
+//$movieREpo->readMovieList();
 
 /*
 $count = new Screening;

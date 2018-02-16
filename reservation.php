@@ -36,7 +36,7 @@ class Reservation
         $this->setMovie(readline());
 
         $movie = $json[$this->getMovie()];
-        printf("\nTitle: %s\nDuration: %s\nFSK: %d\nHall: %d\n\n", $movie['movie'], $movie['duration'], $movie['fsk'], $movie['hall']);
+        printf("\nTitle: %s\nDuration: %s\nFSK: %d\nHall: %d\n\n", $movie['movie'], $movie->getDuration(), $movie->getFsk(), $movie['hall']);
 
         printf("%s\n%s\n%s\n%s\n%s\n%s\n\n", $this->day[0], $this->day[1], $this->day[2], $this->day[3], $this->day[4], $this->day[5]);
 

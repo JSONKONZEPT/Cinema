@@ -16,22 +16,23 @@ class ReservationView
         $movieId = readline();
 
         $movie = $movie_list[$movieId];
-        printf("\nTitle: %s\nDuration: %s\nFSK: %d\nHall: %d\n\n", $movie['movie'], $movie['duration'], $movie['fsk'], $movie['hall']);
+        printf("\nTitle: %s\nDuration: %s\nFSK: %d\n\n", $movie->getTitle(), $movie->getDuration(), $movie->getFsk());
 
-        for ($i = 0; $i < count($this->day); $i++) {
-            printf("%d %s\n", $i, $this->day[$i]);
-        }
-        print "\n";
+//        for ($i = 0; $i < count($this->day); $i++) {
+//            printf("%d %s\n", $i, $this->day[$i]);
+//        }
+//        print "\n";
 
         $reservation = new Reservation();
         $reservation->setMovie($movieId);
-
-        print 'Which day (number): ';
-        $reservation->setDay(readline());
+        var_dump($movie);
+//
+//        print 'Which day (number): ';
+//        $reservation->setDay(readline());
 
         print "\n";
-        for ($i = 0; $i < count($movie['time']); $i++) {
-            printf("%d %s\n", $i, $movie['time'][$i]);
+        foreach ($movie->getScreenings() as $i=>$screening) {
+            printf("%d %s Free seats: %d\n", $i, $screening->getTime(), $screening->countFreeSeats());
         }
         print "\n";
 

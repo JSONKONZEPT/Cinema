@@ -14,7 +14,9 @@ class MovieView
         for ($i = 0; $i < count($movie_list); $i++) {
             $movie = $movie_list[$i];
 
-            print $i . ")\n" . "======================================\nMovie: " . $movie['movie'] . "\nDuration: " . $movie['duration'] . "\nFSK: " . $movie['fsk'] . "\n=====================================\n\n";
+            print $i . ")\n" . "======================================\nMovie: " . $movie->getTitle() . "\nDuration: " . $movie->getDuration() . "\nFSK: " . $movie->getFsk() . "\n=====================================\n\n";
         }
     }
+
+
 }
