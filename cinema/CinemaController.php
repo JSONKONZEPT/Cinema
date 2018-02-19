@@ -13,7 +13,7 @@ class CinemaController {
     {
         $movieController = new MovieController();
         $reservationController = new ReservationController();
-        $screening = new Screening();
+        $reservationView = new ReservationView();
 
         do{
             $command = $this->view->getCommand();
@@ -30,6 +30,7 @@ class CinemaController {
 
                 case 2:
                     $reservationController->displayReservations();
+                    $reservationView->cancelReservation('data/reservations.json');
                     break;
 
                 case 3:

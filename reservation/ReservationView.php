@@ -9,6 +9,8 @@
 class ReservationView
 {
 
+    protected $filename = 'data/reservations.json';
+
     public function getReservationFromUser(array $movie_list) {
 
         print 'Which movie (number): ';
@@ -65,13 +67,16 @@ class ReservationView
         print "\n\n";
     }
 
-    public function cancelReservation() {
-        print "Which reservation do you want cancel? : ";
+    public function cancelReservation($filename) {
+        $string = file_get_contents($filename);
+        $json = json_decode($string);
+
+        print "Which reservation do you want cancel? (Id): ";
         $cancelReservation = readline();
-    }
 
-    public function reservatedSeats() {
+        array_splice($json, $cancelReservation, 1);
 
+        file_put_contents($filename, (json_encode($json)));
     }
 
 }
