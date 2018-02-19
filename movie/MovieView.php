@@ -8,7 +8,6 @@
 
 class MovieView
 {
-
     public function displayMovieList(array $movie_list)
     {
         for ($i = 0; $i < count($movie_list); $i++) {
@@ -17,6 +16,4 @@ class MovieView
             print $i . ")\n" . "======================================\nMovie: " . $movie->getTitle() . "\nDuration: " . $movie->getDuration() . "\nFSK: " . $movie->getFsk() . "\n=====================================\n\n";
         }
     }
-
-
 }

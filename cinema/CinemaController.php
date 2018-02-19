@@ -2,7 +2,7 @@
 
 class CinemaController {
 
-    private $view;
+    protected $view;
 
     public function __construct()
     {
@@ -14,7 +14,6 @@ class CinemaController {
         $movieController = new MovieController();
         $reservationController = new ReservationController();
         $reservationView = new ReservationView();
-
         do{
             $command = $this->view->getCommand();
             switch($command){
@@ -23,17 +22,22 @@ class CinemaController {
                     break;
 
                 case 1:
+                    $movieController->addMovies();
+                    $movieController->save('data/movies.json');
+                    break;
+
+                case 2:
                     $movieController->displayMovies();
                     $movieController->chooseMovie();
                     $reservationController->getReservationFromUser();
                     break;
 
-                case 2:
+                case 3:
                     $reservationController->displayReservations();
                     $reservationView->cancelReservation('data/reservations.json');
                     break;
 
-                case 3:
+                case 4:
                     $reservationController->displayReservations();
                     break;
 

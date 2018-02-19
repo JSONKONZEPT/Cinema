@@ -9,7 +9,8 @@
 class CinemaView
 {
     protected $menu = [
-        'Movies',
+        'List movies',
+        'Add movies',
         'New reservation',
         'Cancel reservation',
         'List reservations'

@@ -8,7 +8,7 @@
 
 class MovieRepository
 {
-    private $movieListFilename = "data/movies.json";
+    protected $movieListFilename = "data/movies.json";
 
     public function __construct()
     {
