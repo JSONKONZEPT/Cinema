@@ -24,14 +24,30 @@ class MovieController {
         $this->view->displayMovieList($this->movieList);
     }
 
+    public function searchMovie($json)
+    {
+
+
+        print "Search a movie (movie name): ";
+        $search = readline();
+
+        for($i = 0; $i < count($json); $i++) {
+            if (in_array($search, $json[$i])) {
+                print "Movie exists!\n";
+            }
+        }
+    }
+
     public function addMovies()
     {
         print 'Movie name: ';
         $this->setMovie(readline());
-        print 'Duration: ';
+        print 'Duration (hh)h (mm)min: ';
         $this->setDuration(readline());
-        print 'Fsk: ';
-        $this->setFsk(readline());
+        do {
+            print 'Fsk: ';
+            $this->setFsk(readline());
+        }while(!preg_match('/^[1]{1}[0-8]{1}$/', $this->fsk));
 
         return $this;
     }
@@ -39,7 +55,7 @@ class MovieController {
     public function fromJson($filename)
     {
         $string = file_get_contents($filename);
-        $json = json_decode($string);
+        $json = json_decode($string, true);
         return $json;
     }
 

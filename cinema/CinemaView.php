@@ -13,7 +13,8 @@ class CinemaView
         'Add movies',
         'New reservation',
         'Cancel reservation',
-        'List reservations'
+        'List reservations',
+        'Search for Movie'
     ];
 
     public function getCommand(): string

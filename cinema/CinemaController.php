@@ -41,13 +41,17 @@ class CinemaController {
                     $reservationController->displayReservations();
                     break;
 
+                case 5:
+                    $movieController->searchMovie($movieController->fromJson('data/movies.json'));
+                    break;
+
                 case 'x':
 
                     break;
 
                 default:
 
-                    echo "Please enter 0, 1, 2 or 3\n";
+                    echo "Please enter 0, 1, 2, 3, 4, 5 or x\n";
                     break;
             }
         }
