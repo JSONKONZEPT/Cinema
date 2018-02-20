@@ -53,7 +53,7 @@ class MovieController {
         ];
     }
 
-    public function pushIt($json)
+    public function pushIn($json)
     {
 
         array_push($json, $this->toArray());
@@ -63,7 +63,7 @@ class MovieController {
 
     public function toJson()
     {
-        return json_encode($this->pushIt($this->fromJson($this->filename)));
+        return json_encode($this->pushIn($this->fromJson($this->filename)));
     }
 
     public function save(string $filename): MovieController
